@@ -12,8 +12,8 @@ public unsafe partial class Msbt : SafeHandleZeroOrMinusOneIsInvalid
     [LibraryImport("cs_restbl")]
     private static partial DataMarshal ToBinary(Msbt handle);
 
-    [LibraryImport("cs_restbl", StringMarshalling = StringMarshalling.Utf8)]
-    private static partial Msbt FromText(string text);
+    [LibraryImport("cs_msbt", EntryPoint = "FromText", StringMarshalling = StringMarshalling.Utf8)]
+    private static partial Msbt FromTextNative(string text);
 
     [LibraryImport("cs_restbl")]
     private static partial StringMarshal ToText(Msbt handle);
@@ -36,11 +36,9 @@ public unsafe partial class Msbt : SafeHandleZeroOrMinusOneIsInvalid
         return ToBinary(this);
     }
 
-    public static Msbt FromText(ReadOnlySpan<byte> data)
+    public static Msbt FromText(string text)
     {
-        fixed (byte* ptr = data) {
-            return FromBinary(ptr, data.Length);
-        }
+        return FromTextNative(text);
     }
 
     public StringMarshal ToText()
