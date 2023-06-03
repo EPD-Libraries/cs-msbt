@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,6 +6,11 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+	<EmbeddedResource Include="..\native\build\linux\cs_msbt.so" Link="Lib\cs_msbt.so" Condition="Exists('..\native\build\linux\cs_msbt.so')" />
+    <EmbeddedResource Include="..\native\build\cs_msbt.dll" Link="Lib\cs_msbt.dll" Condition="Exists('..\native\build\cs_msbt.dll')" />	
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\lib\NativeIO\src\Native.IO.csproj" />
