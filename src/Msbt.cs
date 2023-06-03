@@ -6,19 +6,19 @@ namespace CsMsbt;
 
 public unsafe partial class Msbt : SafeHandleZeroOrMinusOneIsInvalid
 {
-    [LibraryImport("cs_restbl")]
+    [LibraryImport("cs_msbt")]
     private static partial Msbt FromBinary(byte* src, int src_len);
 
-    [LibraryImport("cs_restbl")]
+    [LibraryImport("cs_msbt")]
     private static partial DataMarshal ToBinary(Msbt handle);
 
     [LibraryImport("cs_msbt", EntryPoint = "FromText", StringMarshalling = StringMarshalling.Utf8)]
     private static partial Msbt FromTextNative(string text);
 
-    [LibraryImport("cs_restbl")]
+    [LibraryImport("cs_msbt")]
     private static partial StringMarshal ToText(Msbt handle);
 
-    [LibraryImport("cs_restbl")]
+    [LibraryImport("cs_msbt")]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static partial bool Free(IntPtr handle);
 
