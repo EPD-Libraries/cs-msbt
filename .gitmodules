@@ -1,0 +1,6 @@
+[submodule "lib/NativeIO"]
+	path = lib/NativeIO
+	url = https://github.com/ArchLeaders/Native.IO
+[submodule "native/lib/msbt"]
+	path = native/lib/msbt
+	url = https://github.com/EPD-Libraries/msbt
