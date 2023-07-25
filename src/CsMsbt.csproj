@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="..\native\build\cs_msbt.dll" Link="Lib\cs_msbt.dll" Condition="Exists('..\native\build\cs_msbt.dll')" />
 	<EmbeddedResource Include="..\native\build\linux\cs_msbt.so" Link="Lib\cs_msbt.so" Condition="Exists('..\native\build\linux\cs_msbt.so')" />
-    <EmbeddedResource Include="..\native\build\cs_msbt.dll" Link="Lib\cs_msbt.dll" Condition="Exists('..\native\build\cs_msbt.dll')" />	
+	<EmbeddedResource Include="..\native\build\macos\cs_msbt.dylib" Link="Lib\cs_msbt.dylib" Condition="Exists('..\native\build\macos\cs_msbt.dylib')" />
   </ItemGroup>
 
   <ItemGroup>
